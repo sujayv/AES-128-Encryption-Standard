@@ -1,0 +1,9 @@
+**This code is in no way robust to attacks (excluding cache attacks) and should be used solely for learning and informational purposes**
+
+I have implemented AES-128 in the CBC mode of encryption, as mentioned in the FIPS 197 standard, without the use of any crypto libraries (with the exception of java.security.SecureRandom to generate a random key and random initialization vector). The implementation consists of functions that purely utilize only the core concepts of Java and do not employ any complex libraries or functions. The main aim while writing the code was to facilitate learning of this encryption scheme for individuals and each function has been written in a way such that you only need basic knowledge in cryptography (and of course in Java) to understand the code. We have restricted our code to encode only text input (in ASCII) and not for files as a whole or images, etc. 
+
+Our implementation does not employ the use of any look-up tables and thus is resistant to any type of cache attack. This, however, leads to a serious impact on the performance of the code for a large text input. The padding scheme used is ANSI X.923, as mentioned by Bruce Schneier in Applied Cryptography - Protocols, Algorithms and Source Code in C. 
+
+Thus, our implementation of the AES-128 cipher still has vulnerabilities such as erroneous encryption if input characters are outside the extended ASCII character set, etc. If the code is incorporated in a larger application, then new vulnerabilities which we haven’t predicted may arise leading to possible failures in encryption. 
+
+
